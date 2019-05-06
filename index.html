@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>TWITCH.TV SEARCH STREAM</title>
+<style>
+body {font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;}
+
+p {color: black;}
+
+img {float: right;}
+
+#total {
+	font-weight: bold;
+	display: inline-block;
+}
+
+a {
+	color: blue;
+	text-decoration: none;
+}
+
+a:hover {color: cornflowerblue;}
+
+.all {
+	margin: 0 auto;
+	margin-top: 300px;
+	margin-bottom: 100px;
+	width: 750px;
+	border: 3px solid black;
+}
+
+.channel-card {
+	width: 750px;
+	padding: 8px;
+	height: 100px;
+	padding: 0px;
+	color: black;
+}
+
+.channel-card h1 {
+	font-size: 20px;
+	margin-top: 12px;
+	margin-bottom: 6px;
+}
+
+.channel-card h3 {
+	display: inline;
+	font-size: 16px;
+	color: black;
+}
+
+.channel-card h4 {
+	margin-top: 8px;
+	font-size: 12px;
+	color: black;
+}
+
+.card-logo {
+	display: inline-block;
+	float: left;
+	margin-right: 8px;
+}
+
+.card-name{
+  cursor: pointer;
+}
+
+ul.pagination {
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    padding: 8px 16px;
+    text-decoration: none;
+	display: inline;
+	float: right;
+    margin-top: -29px;
+    font-size: 22px;
+}
+
+ul.pagination li a:hover:not(.active) {background-color: lightgray;}
+
+#pages{
+  display: inline;
+  float: right;
+  font-size: 14px;
+  margin-top: -15px;
+}
+
+.container{
+  margin-left: 10px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="all">
+  <img class="twitch-icon" width=80px src="http://findicons.com/files/icons/2779/simple_icons/128/twitch_128_black.png" alt="twitch icon"/>
+  <div class="container">
+    <br><br>
+  <input type="text" id="searcher" placeholder="Search query...">
+  <button id="searchQuery" onclick="clearChannels(); sendSearchRequest(0);">Search</button>
+  <div id="hiddenStatus" style="display:none"></div>
+    </div>
+  <br><br><hr>
+
+    <div class="container">
+  <p id="total"></p>
+
+  <ul class="pagination">
+    <li><a href="#" class="pagination" id="search2" style="visibility:hidden" disabled=true; onclick="getNextStreams();">»</a></li>
+    <div id="pages"></div>
+    <li><a href="#" class="pagination" id="search1" style="visibility:hidden" disabled=true; onclick="getPrevStreams();">«</a></li>
+  </ul>
+	
+  <div id="list"></div>
+  <br><br>
+  </div>
+</div>
+
+<script src="twitchStreamSearch.js"></script>
+</body>
+</html>
