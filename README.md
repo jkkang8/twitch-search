@@ -1,3 +1,3 @@
 # twitch-search
 
-please enter in any search string and the app will display relevant streams :)
+please type in any search string and the app will display relevant streams :)
